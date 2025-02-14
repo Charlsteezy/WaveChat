@@ -1,5 +1,7 @@
 import { Socket } from 'socket.io-client';
+import ChatComponent from '@/components/ChatComponent';
+import MainLayout from '@/pages/MainLayout';
 
 export default function Chat({ socket }: { socket: Socket }) {
-  return <div>Chat</div>;
+  return <MainLayout element={<ChatComponent socket={socket} />} />;
 }

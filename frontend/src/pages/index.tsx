@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes as RouterRoutes, Route } from 'react-router';
+import { BrowserRouter, Routes as RouterRoutes, Route } from 'react-router-dom';
 import { io } from 'socket.io-client';
+import '@ant-design/v5-patch-for-react-19';
 
 import config from '../config';
 
