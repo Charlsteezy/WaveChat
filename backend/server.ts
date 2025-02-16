@@ -68,6 +68,13 @@ io.on('connection', (socket) => {
     io.to(roomId).emit("message", messageData);
   });
 
+  socket.on("terminate-chat", () => {
+    if (!connectedUsers[socket.id]) return;
+    socket.join(currentRooms[connectedUsers[socket.id].roomId]);
+    delete currentRooms[connectedUsers[socket.id].roomId];
+    delete connectedUsers[socket.id];
+  });
+
   socket.on("disconnect", () => {
 
     connectedUsers[socket.id] && io.to(connectedUsers[socket.id].roomId).emit("user-left", connectedUsers[socket.id].userData.name);
