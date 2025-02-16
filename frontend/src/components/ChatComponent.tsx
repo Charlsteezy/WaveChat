@@ -64,6 +64,7 @@ export default function Chat({ socket }: { socket: Socket }) {
       //Handle the case where the user leaves the chat
       setChatActive(false);
       navigate('/');
+      socket.emit('terminate-chat');
       showErrorNotification({
         messageTitle: `${userName} left the chat!`,
         description: 'Hope you had a great chat!',
